@@ -28,6 +28,11 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            buildConfigField("String", "Environment", "\"PROD\"")
+        }
+
+        debug {
+            buildConfigField("String", "Environment", "\"SIT\"")
         }
     }
     compileOptions {
@@ -46,6 +51,7 @@ android {
         correctErrorTypes = true
     }
 
+    android.buildFeatures.buildConfig = true
 }
 
 dependencies {
